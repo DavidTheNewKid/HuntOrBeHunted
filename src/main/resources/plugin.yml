@@ -1,7 +1,39 @@
-name: ComplexCompass
+name: HuntOrBeHunted
 version: ${project.version}
-main: us.davidsprojects.minigames.HuntOrBeHunted
+main: us.davidsprojects.huntorbehunted.HuntOrBeHunted
 api-version: 1.16
 authors: [DavidTheNewKid]
 description: Compass for tracking players
 website: https://davidsprojects.us/
+commands:
+  hobh:
+    description: lets you join hunter squad
+    usage: |
+      /<command> [join|leave] [team]
+      /<command> [set] [player] [team]
+      /<command> [unset] [player]
+      /<command> [start|stop]
+      /<command> [compass] [player] - optional
+      /<command> hunter set DavidTheNewKid - let's you join hunter team
+    permission: hobh
+permissions:
+  hobh.*:
+    description: Permissions for everything
+    default: true
+    children:
+      hobh.join: true
+      hobh.leave: true
+      hobh.set: true
+      hobh.unset: true
+  hobh.join:
+    description: Permissions to join teams
+    default: true
+  hobh.leave:
+    description: Permission to leave teams
+    default: true
+  hobh.set:
+    description: Permission to set teams of other players
+    default: false
+  hobh.unset:
+    description: Permission to unset teams of other players
+    default: false
