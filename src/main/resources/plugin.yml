@@ -1,0 +1,7 @@
+name: ComplexCompass
+version: ${project.version}
+main: us.davidsprojects.minigames.HuntOrBeHunted
+api-version: 1.16
+authors: [DavidTheNewKid]
+description: Compass for tracking players
+website: https://davidsprojects.us/
