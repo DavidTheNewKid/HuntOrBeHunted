@@ -17,7 +17,7 @@ public class HuntOrBeHuntedTabCompleter implements TabCompleter {
     /*
      * Valid commands.
      */
-    private static final String[] COMMANDS = {"start", "stop", "set", "unset", "join", "leave", "compass"};
+    private static final String[] COMMANDS = {"start", "stop", "set", "unset", "join", "leave", "compass", "help"};
     /*
      * Valid teams.
      */
