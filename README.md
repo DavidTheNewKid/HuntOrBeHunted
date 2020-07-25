@@ -20,3 +20,9 @@ The game is hunters versus hunted. The hunted must survive the onslaught of hunt
 | /hobh unset [player] | unset a player from a team |
 | /hobh start | starts a game |
 | /hobh stop | stops a game |
+
+## TODOs
+1. Add in command logic for gameplay
+2. Compass logic
+3. Polish and cleanup for readability
+4. Think of ways of enhancing this gamemode
