@@ -17,7 +17,7 @@ public class HuntOrBeHuntedTabCompleter implements TabCompleter {
     /*
      * Valid commands.
      */
-    private static final String[] COMMANDS = {"start", "stop", "set", "unset", "join", "leave", "compass", "help"};
+    private static final String[] COMMANDS = {"start", "stop", "set", "unset", "join", "leave", "compass", "help","list"};
     /*
      * Valid teams.
      */
@@ -48,7 +48,7 @@ public class HuntOrBeHuntedTabCompleter implements TabCompleter {
                     List<String> commands = new ArrayList<>(Bukkit.getOnlinePlayers().stream().map(Player::getName).collect(Collectors.toList()));
                     StringUtil.copyPartialMatches(partialCommand, commands, completions);
                 }
-                else if(subCommand.equals("join"))
+                else if(subCommand.equals("join") || subCommand.equals("leave"))
                 {
                     // List available teams as auto-complete
                     List<String> commands = new ArrayList<>(Arrays.asList(TEAMS));
@@ -64,7 +64,7 @@ public class HuntOrBeHuntedTabCompleter implements TabCompleter {
             {
                 String subCommand = args[0].toLowerCase();
                 String partialCommand = args[2];
-                if (subCommand.equals("set"))
+                if (subCommand.equals("set") || subCommand.equals("unset"))
                 {
                     // List available teams as auto-complete
                     List<String> commands = new ArrayList<>(Arrays.asList(TEAMS));

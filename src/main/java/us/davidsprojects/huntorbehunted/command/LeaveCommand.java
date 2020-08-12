@@ -2,6 +2,8 @@ package us.davidsprojects.huntorbehunted.command;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import us.davidsprojects.huntorbehunted.HuntOrBeHunted;
 
 public class LeaveCommand extends AbstractCommand {
     /**
@@ -41,7 +43,40 @@ public class LeaveCommand extends AbstractCommand {
 
     @Override
     public void execute(CommandSender sender, Command command, String label, String[] args) {
+        if(sender instanceof Player)
+        {
+            Player player = (Player) sender;
+            // used for interpreting what the outcome was for the player
+            String status;
+            if(args.length >= 2)
+            {
+                String team = args[1].toLowerCase();
+                if(team.equals("hunters"))
+                {
+                    status = HuntOrBeHunted.hunters.removePlayer(player.getName());
+                    HuntOrBeHunted.trackingMap.remove(player.getUniqueId());
+                }
+                else if(team.equals("hunteds"))
+                {
+                    status = HuntOrBeHunted.hunteds.removePlayer(player.getName());
+                }
+                else
+                {
+                    status = "Tried to leave an invalid team";
+                }
+            }
+            else
+            {
+                status = "/hobh leave [team] - Missing team";
+            }
 
+            player.sendMessage(status);
+
+        }
+        else
+        {
+            sender.sendMessage("Need to be a player to leave a team");
+        }
     }
 
 }

@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
+import us.davidsprojects.huntorbehunted.HuntOrBeHunted;
 
 public class CompassCommand extends AbstractCommand {
     /**
@@ -45,10 +46,19 @@ public class CompassCommand extends AbstractCommand {
 
     @Override
     public void execute(CommandSender sender, Command command, String label, String[] args) {
-        Player player = (Player) sender;
-        PlayerInventory inventory = player.getInventory();
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
+            PlayerInventory inventory = player.getInventory();
 
-        inventory.addItem(new ItemStack(Material.COMPASS));
+            if(HuntOrBeHunted.hunters.findPlayer(player.getName())) {
+                inventory.addItem(HuntOrBeHunted.helper.getCompass());
+                player.sendMessage("Gave a compass to " + player.getName());
+            }
+            else
+            {
+                player.sendMessage("Need to be on hunters team to receive compass (/hobh join hunters)");
+            }
+        }
 
     }
 

@@ -27,7 +27,7 @@ public class HelpCommand extends AbstractCommand {
     /**
      * The usage of the command
      */
-    private static final String USAGE = "/hobh compass";
+    private static final String USAGE = "/hobh help";
 
     /**
      * Construct the command
