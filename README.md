@@ -1,3 +1,5 @@
+![Java CI with Maven](https://github.com/DavidTheNewKid/HuntOrBeHunted/workflows/Java%20CI%20with%20Maven/badge.svg)
+
 # HuntOrBeHunted
 A Minecraft minigame (mode)
 
@@ -28,6 +30,7 @@ The game is hunters versus hunted. The hunted must survive the onslaught of hunt
 | /hobh stop | stops a game (coming soon) |
 
 ## TODOs
+
 1. Polish and cleanup for readability
 2. Think of ways of enhancing this gamemode
 3. Implement Start and Stop timer events
