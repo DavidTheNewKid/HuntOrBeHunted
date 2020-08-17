@@ -47,6 +47,8 @@ public class HuntOrBeHuntedCommandHandler implements CommandExecutor {
             case "compass":
                 cmd = new CompassCommand(sender);
                 break;
+            case "list":
+                cmd = new ListCommand(sender);
         }
 
         cmd.execute(sender, command, label, args);
